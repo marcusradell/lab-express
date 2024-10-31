@@ -1,11 +1,5 @@
-import express from "express";
+import { createApp } from "./app";
 
-export function createApp() {
-  const app = express();
-
-  app.get("/status", (req, res) => {
-    res.json({ status: "ready" });
-  });
-
-  return app;
-}
+createApp().listen(3000, () => {
+  console.log(`Server started on http://localhost:3000.`);
+});
