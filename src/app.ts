@@ -10,9 +10,7 @@ export function createApp() {
 
   const pancakesFeature = createPancakesFeature();
 
-  app.get("/", (req, res) => {
-    res.json([]);
-  });
+  app.use("/api/v1/pancakes", pancakesFeature.getRouter());
 
   return app;
 }
