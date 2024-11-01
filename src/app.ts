@@ -1,8 +1,13 @@
 import express from "express";
-import { createPancakesFeature } from "./features";
+import { createPancakesFeature, Db, Pancake } from "./features";
 
-function createDb() {
-  return { getAll: async () => [] };
+function createDb(): Db {
+  const data = [];
+
+  return {
+    getAll: async () => data,
+    cookPancake: async (pancake: Pancake) => {},
+  };
 }
 
 export function createApp() {
