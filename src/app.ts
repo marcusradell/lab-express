@@ -8,7 +8,7 @@ export function createApp() {
     res.json({ status: "ready" });
   });
 
-  const pancakesFeature = createPancakesFeature();
+  const pancakesFeature = createPancakesFeature({ getAll: async () => [] });
 
   app.use("/api/v1/pancakes", pancakesFeature.getRouter());
 

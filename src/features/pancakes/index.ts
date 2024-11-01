@@ -1,12 +1,14 @@
 import express from "express";
 
-export function createPancakesFeature() {
+type Db = any;
+
+export function createPancakesFeature(db: Db) {
   return {
     getRouter() {
       const router = express.Router();
 
-      router.get("/", (req, res) => {
-        res.json([]);
+      router.get("/", async (req, res) => {
+        res.json(await db.getAll());
       });
 
       return router;
