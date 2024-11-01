@@ -1,6 +1,10 @@
 import express from "express";
 import { createPancakesFeature } from "./features";
 
+function createDb() {
+  return { getAll: async () => [] };
+}
+
 export function createApp() {
   const app = express();
 
@@ -8,7 +12,7 @@ export function createApp() {
     res.json({ status: "ready" });
   });
 
-  const db = { getAll: async () => [] };
+  const db = createDb();
 
   const pancakesFeature = createPancakesFeature(db);
 
