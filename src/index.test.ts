@@ -20,3 +20,12 @@ test("GET /api/v1/pancakes", async () => {
   deepEqual(result.status, 200);
   deepEqual(result.body, []);
 });
+
+test("POST /api/v1/pancakes", async () => {
+  const app = createApp();
+
+  const result = await request(app).post("/api/v1/pancakes");
+
+  deepEqual(result.status, 200);
+  deepEqual(result.body, { id: -1 });
+});

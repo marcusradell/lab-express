@@ -15,6 +15,10 @@ export function createPancakesFeature(db: Db) {
         res.json(await db.getAll());
       });
 
+      router.post("/", async (req, res) => {
+        res.json({ id: -1 });
+      });
+
       return router;
     },
   };
