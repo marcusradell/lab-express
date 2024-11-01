@@ -11,3 +11,12 @@ test("GET /status", async () => {
   deepEqual(result.status, 200);
   deepEqual(result.body, { status: "ready" });
 });
+
+test("GET /api/v1/pancakes", async () => {
+  const app = createApp();
+
+  const result = await request(app).get("/api/v1/pancakes");
+
+  deepEqual(result.status, 200);
+  deepEqual(result.body, []);
+});
