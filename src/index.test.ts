@@ -28,6 +28,5 @@ test("POST /api/v1/pancakes", async () => {
     .post("/api/v1/pancakes")
     .send({ layers: [] });
 
-  deepEqual(result.status, 200);
-  deepEqual(result.body.layers, []);
+  deepEqual(result.status, 201);
 });

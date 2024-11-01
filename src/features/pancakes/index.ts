@@ -28,7 +28,7 @@ export function createPancakesFeature(db: Db) {
 
         const id = v4();
 
-        res.json({ id, layers });
+        res.status(201).json({ id });
       });
 
       return router;
