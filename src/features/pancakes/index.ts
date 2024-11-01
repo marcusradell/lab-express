@@ -1,6 +1,10 @@
 import express from "express";
 
-type Db = any;
+type Pancake = unknown;
+
+type Db = {
+  getAll: () => Promise<Pancake[]>;
+};
 
 export function createPancakesFeature(db: Db) {
   return {
