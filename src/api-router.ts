@@ -8,7 +8,7 @@ export function createApiRouter() {
   v1Router.use("/pancakes", pancakesFeature.getRouter());
 
   const apiRouter = Router();
-  apiRouter.use("/v1", v1Router);
+  apiRouter.use("/api/v1", v1Router);
 
   return apiRouter;
 }

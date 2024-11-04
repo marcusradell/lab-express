@@ -9,7 +9,7 @@ export function createApp(apiRouter: Router) {
     res.json({ status: "ready" });
   });
 
-  app.use("/api", apiRouter);
+  app.use("/", apiRouter);
 
   return app;
 }
