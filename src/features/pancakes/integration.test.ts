@@ -1,12 +1,12 @@
 import { deepEqual, equal } from "node:assert/strict";
 import request from "supertest";
 import test, { describe } from "node:test";
-import { createApp } from "../../app";
+import { createHttpApp } from "../../app";
 import { createPancakesFeature } from "./feature";
 
 function setup() {
   const { router } = createPancakesFeature();
-  const app = createApp(router);
+  const app = createHttpApp(router);
 
   return request(app);
 }

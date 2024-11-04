@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 
-export function createApp(apiRouter: Router) {
+export function createHttpApp(apiRouter: Router) {
   const app = express();
 
   app.use(express.json());
