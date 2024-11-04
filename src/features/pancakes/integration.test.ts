@@ -1,7 +1,6 @@
 import { deepEqual, equal } from "node:assert/strict";
 import request from "supertest";
 import test, { describe } from "node:test";
-import { createApiRouter } from "../../api-router";
 import { createApp } from "../../app";
 import { createPancakesFeature } from "./feature";
 
