@@ -16,5 +16,13 @@ export function createRouter(service: Service) {
     res.status(201).json({ id });
   });
 
+  router.post("/menus/:menuItemName", async (req, res) => {
+    const { menuItemName } = req.params;
+
+    const id = await service.cookByMenuItem(menuItemName);
+
+    res.status(201).json({ id });
+  });
+
   return router;
 }
