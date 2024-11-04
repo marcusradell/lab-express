@@ -1,16 +1,16 @@
 import { Pancake } from ".";
 
 export type Db = {
-  getAll: () => Promise<Pancake[]>;
-  cookPancake: (pancake: Pancake) => Promise<void>;
+  viewAll: () => Promise<Pancake[]>;
+  cook: (pancake: Pancake) => Promise<void>;
 };
 
 export function createDb(): Db {
   const data: Pancake[] = [];
 
   return {
-    getAll: async () => data,
-    cookPancake: async (pancake: Pancake) => {
+    viewAll: async () => data,
+    cook: async (pancake: Pancake) => {
       data.push(pancake);
     },
   };

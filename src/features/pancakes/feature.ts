@@ -10,7 +10,7 @@ export function createPancakesFeature() {
       const router = express.Router();
 
       router.get("/", async (req, res) => {
-        res.json(await db.getAll());
+        res.json(await db.viewAll());
       });
 
       router.post("/", async (req, res) => {
@@ -18,7 +18,7 @@ export function createPancakesFeature() {
         const id = v4();
         const pancake = { id, layers };
 
-        await db.cookPancake(pancake);
+        await db.cook(pancake);
 
         res.status(201).json({ id });
       });
