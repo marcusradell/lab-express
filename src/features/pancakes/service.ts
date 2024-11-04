@@ -13,6 +13,10 @@ export function createService(db: Db) {
 
       const pancake = cook(id, nowTimestamp, layers);
 
+      if (pancake.status === "INVALID") {
+        throw new Error(pancake.error.code);
+      }
+
       await db.cook(pancake);
 
       return id;
