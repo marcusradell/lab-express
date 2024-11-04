@@ -24,10 +24,12 @@ describe("Pancakes API", () => {
   test("POST /", async () => {
     const api = setup();
 
-    const postResult = await api.post("/").send({ layers: [] });
+    const postResult = await api
+      .post("/")
+      .send({ layers: ["american_pancake"] });
     const getResult = await api.get("/");
 
     equal(postResult.status, 201);
-    deepEqual(getResult.body[0].layers, []);
+    deepEqual(getResult.body[0].layers, ["american_pancake"]);
   });
 });
