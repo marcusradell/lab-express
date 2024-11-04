@@ -30,6 +30,7 @@ describe("Pancakes API", () => {
     const getResult = await api.get("/");
 
     equal(postResult.status, 201);
+    equal(getResult.body[0].status, "COOKING");
     deepEqual(getResult.body[0].layers, ["american_pancake"]);
   });
 });

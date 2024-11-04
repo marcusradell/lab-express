@@ -1,3 +1,3 @@
 export function cook(id: string, layers: string[]) {
-  return { id, layers };
+  return { id, layers, status: "COOKING" };
 }
