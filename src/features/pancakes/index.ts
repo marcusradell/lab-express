@@ -1,5 +1,6 @@
 import express from "express";
 import { v4 } from "uuid";
+import { createDb } from "./db";
 
 export type PancakeLayer = {
   content: string;
@@ -10,12 +11,9 @@ export type Pancake = {
   layers: PancakeLayer[];
 };
 
-export type Db = {
-  getAll: () => Promise<Pancake[]>;
-  cookPancake: (pancake: Pancake) => Promise<void>;
-};
+export function createPancakesFeature() {
+  const db = createDb();
 
-export function createPancakesFeature(db: Db) {
   return {
     getRouter() {
       const router = express.Router();

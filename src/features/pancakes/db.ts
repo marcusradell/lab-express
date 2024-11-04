@@ -1,4 +1,9 @@
-import { Db, Pancake } from "../features";
+import { Pancake } from ".";
+
+export type Db = {
+  getAll: () => Promise<Pancake[]>;
+  cookPancake: (pancake: Pancake) => Promise<void>;
+};
 
 export function createDb(): Db {
   const data: Pancake[] = [];

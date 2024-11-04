@@ -1,11 +1,8 @@
 import { Router } from "express";
 import { createPancakesFeature } from "./features";
-import { createDb } from "./app";
 
 export function createApiRouter() {
-  const db = createDb();
-
-  const pancakesFeature = createPancakesFeature(db);
+  const pancakesFeature = createPancakesFeature();
 
   const v1Router = Router();
   v1Router.use("/pancakes", pancakesFeature.getRouter());
