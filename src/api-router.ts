@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createPancakesFeature } from "../features";
-import { createDb } from ".";
+import { createPancakesFeature } from "./features";
+import { createDb } from "./app";
 
 export function createApiRouter() {
   const db = createDb();

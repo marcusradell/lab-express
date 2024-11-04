@@ -3,7 +3,7 @@ import test from "node:test";
 import request from "supertest";
 import { createApp } from "./app";
 import { Router } from "express";
-import { createApiRouter } from "./app/api-router";
+import { createApiRouter } from "./api-router";
 
 test("GET /status", async () => {
   const apiRouter = Router();
