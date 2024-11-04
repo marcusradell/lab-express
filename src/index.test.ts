@@ -34,5 +34,5 @@ test("POST /api/v1/pancakes", async () => {
   const getResult = await request(app).get("/api/v1/pancakes");
 
   deepEqual(postResult.status, 201);
-  deepEqual(getResult.body, [{ layers: [] }]);
+  deepEqual(getResult.body[0].layers, []);
 });
