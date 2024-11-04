@@ -1,13 +1,18 @@
+import { v4 } from "uuid";
 import { Db } from "./db";
-import { Pancake } from "./types";
 
 export function createService(db: Db) {
   return {
     async viewAll() {
       return db.viewAll();
     },
-    async cook(pancake: Pancake) {
-      db.cook(pancake);
+    async cook(layers: string[]) {
+      const id = v4();
+      const pancake = { id, layers };
+
+      await db.cook(pancake);
+
+      return id;
     },
   };
 }

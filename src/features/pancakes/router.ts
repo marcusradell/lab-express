@@ -1,5 +1,4 @@
 import express from "express";
-import { v4 } from "uuid";
 import { Service } from "./service";
 
 export function createRouter(service: Service) {
@@ -11,10 +10,8 @@ export function createRouter(service: Service) {
 
   router.post("/", async (req, res) => {
     const { layers } = req.body;
-    const id = v4();
-    const pancake = { id, layers };
 
-    await service.cook(pancake);
+    const id = await service.cook(layers);
 
     res.status(201).json({ id });
   });
