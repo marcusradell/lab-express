@@ -1,5 +1,6 @@
 import { v4 } from "uuid";
 import { Db } from "./db";
+import { cook } from "./logic";
 
 export function createService(db: Db) {
   return {
@@ -8,7 +9,8 @@ export function createService(db: Db) {
     },
     async cook(layers: string[]) {
       const id = v4();
-      const pancake = { id, layers };
+
+      const pancake = cook(id, layers);
 
       await db.cook(pancake);
 
