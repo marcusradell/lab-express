@@ -2,9 +2,12 @@ import { deepEqual } from "node:assert/strict";
 import test from "node:test";
 import request from "supertest";
 import { createApp } from "./app";
+import { Router } from "express";
+import { createApiRouter } from "./app/api-router";
 
 test("GET /status", async () => {
-  const app = createApp();
+  const apiRouter = Router();
+  const app = createApp(apiRouter);
 
   const result = await request(app).get("/status");
 
@@ -13,7 +16,7 @@ test("GET /status", async () => {
 });
 
 test("GET /api/v1/pancakes", async () => {
-  const app = createApp();
+  const app = createApp(createApiRouter());
 
   const result = await request(app).get("/api/v1/pancakes");
 
@@ -22,7 +25,7 @@ test("GET /api/v1/pancakes", async () => {
 });
 
 test("POST /api/v1/pancakes", async () => {
-  const app = createApp();
+  const app = createApp(createApiRouter());
 
   const postResult = await request(app)
     .post("/api/v1/pancakes")
