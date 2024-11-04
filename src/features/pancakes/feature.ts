@@ -1,29 +1,14 @@
-import express from "express";
-import { v4 } from "uuid";
 import { createDb } from "./db";
+import { createRouter } from "./router";
+import { createService } from "./service";
 
 export function createPancakesFeature() {
   const db = createDb();
+  const service = createService(db);
+  const router = createRouter(service);
 
   return {
-    getRouter() {
-      const router = express.Router();
-
-      router.get("/", async (req, res) => {
-        res.json(await db.viewAll());
-      });
-
-      router.post("/", async (req, res) => {
-        const { layers } = req.body;
-        const id = v4();
-        const pancake = { id, layers };
-
-        await db.cook(pancake);
-
-        res.status(201).json({ id });
-      });
-
-      return router;
-    },
+    service,
+    router,
   };
 }

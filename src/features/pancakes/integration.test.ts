@@ -5,7 +5,7 @@ import { createApp } from "../../app";
 import { createPancakesFeature } from "./feature";
 
 function setup() {
-  const router = createPancakesFeature().getRouter();
+  const { router } = createPancakesFeature();
   const app = createApp(router);
 
   return request(app);
