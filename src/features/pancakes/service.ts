@@ -9,8 +9,9 @@ export function createService(db: Db) {
     },
     async cook(layers: string[]) {
       const id = v4();
+      const nowTimestamp = Date.now();
 
-      const pancake = cook(id, layers);
+      const pancake = cook(id, nowTimestamp, layers);
 
       await db.cook(pancake);
 
