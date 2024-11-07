@@ -13,16 +13,19 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.1",
     "express": "^4.21.1",
+    "pg": "^8.13.1",
     "uuid": "^11.0.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
-    "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.0",
     "@types/node": "^22.8.5",
+    "@types/pg": "^8.11.10",
     "@types/supertest": "^6.0.2",
+    "drizzle-kit": "^0.28.0",
     "eslint": "^9.14.0",
     "globals": "^15.12.0",
     "supertest": "^7.0.0",
