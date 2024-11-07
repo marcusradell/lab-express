@@ -2,7 +2,7 @@ import { createApiRouter } from "./api-router";
 import { createHttpApp } from "./app";
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { pancakesTable } from "./db/schema";
+import { pancakesTable } from "./features/pancakes/db-schema";
 
 createHttpApp(createApiRouter()).listen(3000, () => {
   console.log(`Server started on http://localhost:3000.`);
@@ -12,7 +12,6 @@ const db = drizzle(process.env.DATABASE_URL!);
 
 async function main() {
   const pancake: typeof pancakesTable.$inferInsert = {
-    startTimestamp: new Date(),
     status: "COOKING",
   };
 
